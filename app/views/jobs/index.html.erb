@@ -11,7 +11,7 @@
   <tbody>
     <% @jobs.each do |job| %>
       <tr>
-          <td> <%= job.title %> </td>
+          <td> <%= link_to(job.title, job_path(job)) %> </td>
           <td> <%= job.description %> </td>
           <td> <%= job.created_at.to_s(:long) %></td>
       </tr>
