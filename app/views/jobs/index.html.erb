@@ -8,6 +8,7 @@
       <tr>
           <th> Title </th>
           <th> Description</th>
+          <th> Time </th>
           <th> Option</th>
       </tr>
   </thead>
@@ -16,11 +17,11 @@
       <tr>
           <td> <%= job.title %> </td>
           <td> <%= job.description %> </td>
+          <td> <%= job.created_at.to_s(:long) %></td>
           <td>
             <%= link_to("Edit", edit_job_path(job), class: "btn btn-sm btn-primary") %>
             <%= link_to("Delete", job_path(job), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-sm btn-danger") %>
           </td>
-
       </tr>
     <% end %>
   </tbody>
