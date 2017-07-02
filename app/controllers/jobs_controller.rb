@@ -26,7 +26,7 @@ class JobsController < ApplicationController
     @job = Job.find(params[:id])
 
     if @job.update(job_params)
-      flash[:noitce] = "Job Updated"
+      flash[:notice] = "Job Updated"
       redirect_to jobs_path
     else
       render :new
@@ -46,6 +46,6 @@ class JobsController < ApplicationController
   def job_params
     params.require(:job).permit(:title, :description)
   end
-  
+
 
 end
