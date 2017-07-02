@@ -1,5 +1,5 @@
 <div class="pull-right">
-  <%= link_to("Add a Job", new_job_path, class: "btn btn-primary") %>
+  <%= link_to("Add a Job", new_admin_job_path, class: "btn btn-primary") %>
 </div>
 <br><br><br>
 
@@ -19,8 +19,8 @@
           <td> <%= job.description %> </td>
           <td> <%= job.created_at.to_s(:long) %></td>
           <td>
-            <%= link_to("Edit", edit_job_path(job), class: "btn btn-sm btn-primary") %>
-            <%= link_to("Delete", job_path(job), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-sm btn-danger") %>
+            <%= link_to("Edit", edit_admin_job_path(job), class: "btn btn-sm btn-primary") %>
+            <%= link_to("Delete", admin_job_path(job), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-sm btn-danger") %>
           </td>
       </tr>
     <% end %>

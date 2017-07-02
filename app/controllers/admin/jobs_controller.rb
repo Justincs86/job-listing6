@@ -4,12 +4,12 @@ class Admin::JobsController < ApplicationController
   layout "admin"
 
 
-  def index
-    @jobs = Job.all
-  end
-
   def show
     @job = Job.find(params[:id])
+  end
+
+  def index
+    @jobs = Job.all
   end
 
   def new
@@ -18,8 +18,8 @@ class Admin::JobsController < ApplicationController
 
   def create
     @job = Job.new(job_params)
+
     if @job.save
-      flash[:notice] = "Job created"
       redirect_to admin_jobs_path
     else
       render :new
@@ -32,12 +32,10 @@ class Admin::JobsController < ApplicationController
 
   def update
     @job = Job.find(params[:id])
-
     if @job.update(job_params)
-      flash[:notice] = "Job Updated"
       redirect_to admin_jobs_path
     else
-      render :new
+      render :edit
     end
   end
 
@@ -45,14 +43,14 @@ class Admin::JobsController < ApplicationController
     @job = Job.find(params[:id])
 
     @job.destroy
-    flash[:alert] = "Job Deleted"
-      redirect_to admin_jobs_path
+
+    redirect_to admin_jobs_path
   end
 
   private
 
   def job_params
-    params.require(:job).permit(:title, :description, :wage_lower_bound, :wage_upper_bound, :contact_email)
+    params.require(:job).permit(:title, :description, :wage_lower_bound, :wage_upper_bound, :contact_email, :is_hidden)
   end
 
 
