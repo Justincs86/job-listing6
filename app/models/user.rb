@@ -8,5 +8,7 @@ class User < ApplicationRecord
   def is_admin?
     is_admin
   end
-  
+
+  has_many :resumes
+
 end
