@@ -3,6 +3,8 @@
 <%= simple_form_for [@job, @resume] do |f| %>
 
 <%= f.input :content %>
-<%= f.submit "Submit", class: "btn btn-sucess" %>
+<%= f.input :attachment %>
+
+<%= f.submit "Submit", class: "btn btn-success" %>
 
 <% end %>
